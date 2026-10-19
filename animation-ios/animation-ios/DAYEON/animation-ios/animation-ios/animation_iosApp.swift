@@ -11,7 +11,7 @@ import SwiftUI
 struct animation_iosApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            KeyFramePracitceView()
         }
     }
 }

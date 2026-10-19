@@ -12,7 +12,7 @@ struct ToastPracticeView: View {
     
     var body: some View {
         Text(title)
-            .font(.system(size: 16, weight: .regular))
+            .font(.galmuri9)
             .foregroundStyle(.white)
             .padding(.horizontal, 20)
             .padding(.vertical, 10)

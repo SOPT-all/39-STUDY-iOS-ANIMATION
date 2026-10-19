@@ -44,7 +44,7 @@ struct KeyFramePracitceView: View {
                     }
                 }
             }
-            .font(.system(size: 16, weight: .regular))
+            .font(.galmuri9)
             .foregroundStyle(.black)
             .underline()
             .offset(x: -140, y: 150)
@@ -116,7 +116,7 @@ struct KeyFramePracitceView: View {
                     isShowingToast = true
                 }
             }
-            .font(.system(size: 16, weight: .regular))
+            .font(.galmuri9)
             .foregroundStyle(.gray)
             .underline()
             .toastPractice(isPresented: $isShowingToast, title: "꼬부기 승!")
