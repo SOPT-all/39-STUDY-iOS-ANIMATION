@@ -11,6 +11,14 @@ struct GanadiView: View {
     @State private var offset: CGSize = .zero
     @State private var angle: Angle = .zero
     @State private var scale: CGFloat = 1
+    
+    private func reset() {
+        withAnimation(.easeInOut(duration: 0.5)) {
+            offset = .zero
+            angle = .zero
+            scale = 1
+        }
+    }
 
     var body: some View {
         VStack(spacing: 40) {
@@ -38,6 +46,20 @@ struct GanadiView: View {
                 Button("크기") {
                     withAnimation(.easeInOut(duration: 1)) {
                         scale = 5
+                    }
+                }
+                
+                Button("초기화") {
+                    reset()
+                }
+                
+                Button("이동 후 복귀") {
+                    withAnimation(.easeInOut(duration: 1)) {
+                        offset = CGSize(width: 100, height: 100)
+                    } completion: {
+                        withAnimation(.easeInOut(duration: 1)) {
+                            offset = .zero
+                        }
                     }
                 }
             }
