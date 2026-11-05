@@ -52,11 +52,10 @@ struct KeyFramePracitceView: View {
             Image(.ggobuk)
                 .resizable()
                 .frame(width: 100, height: 88)
-                .keyframeAnimator(initialValue: CharacterValues(), repeating: isRunning) { [isRunning] content, value in
-                    content
-                        .scaleEffect(isRunning ? value.scale : CGFloat(1))
-                        .rotationEffect(isRunning ? value.angle : Angle.zero)
-                        .offset(isRunning ? value.offset : CGSize.zero)
+                .keyframeAnimator(initialValue: CharacterValues(), repeating: isRunning) { content, value in content
+                        .scaleEffect(value.scale)
+                        .rotationEffect(value.angle)
+                        .offset(value.offset)
                 } keyframes: { _ in
                     KeyframeTrack(\.offset) {
                         LinearKeyframe(CGSize(width: -100, height: -80), duration: 1)
