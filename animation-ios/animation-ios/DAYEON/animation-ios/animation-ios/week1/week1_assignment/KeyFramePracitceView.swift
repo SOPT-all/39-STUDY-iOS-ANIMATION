@@ -20,14 +20,14 @@ struct KeyFramePracitceView: View {
     @State private var esanghaeOffset = CGSize(width: -100, height: 65)
     
     var body: some View {
-        ZStack (alignment: .center) {
+        ZStack {
             Image(.background)
                 .resizable()
                 .frame(maxWidth: .infinity)
                 .scaledToFit()
             
             VStack (alignment: .leading, spacing: 8) {
-                Button ("► 가라!") {
+                Button("► 가라!") {
                     withAnimation(.easeInOut(duration: 1)) {
                         ggobukOffset = .zero
                         esanghaeOffset = .zero
@@ -36,7 +36,7 @@ struct KeyFramePracitceView: View {
                     }
                 }
                 
-                Button ("► 돌아와!") {
+                Button("► 돌아와!") {
                     isRunning = false
                     withAnimation(.easeInOut(duration: 1)) {
                         ggobukOffset = CGSize(width: 105, height: -45)
