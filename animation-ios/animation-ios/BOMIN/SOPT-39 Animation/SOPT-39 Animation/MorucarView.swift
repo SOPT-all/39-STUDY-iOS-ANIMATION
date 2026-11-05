@@ -32,7 +32,6 @@ struct MorucarView: View {
                 .rotationEffect(angle)
                 .offset(offset)
         
-            
             Color.clear
                 .frame(height: 60)
                 .toast(isPresented: $isShowingToast, title: toastMessage)
@@ -45,20 +44,21 @@ struct MorucarView: View {
                     }
                     withAnimation(.easeIn(duration: 1)) {
                         offset = CGSize(width: 600 , height: 0)
+                    } completion: {
+                        offset = CGSize(width: -300, height: 0)  // 화면 밖에서 대기
                     }
-                
                 }
-                Button("돌아오기"){
+                
+                Button("돌아오기") {
                     toastMessage = "저 돌아왔어요"
                     withAnimation(.easeInOut(duration: 0.3)) {
                         isShowingToast = true
                     }
-                    offset = CGSize(width: -300, height: 0)
-                    withAnimation(.easeIn(duration: 1)) {
-                        offset = CGSize(width: 0 , height: 0)
+                    withAnimation(.easeOut(duration: 1)) {   
+                        offset = .zero
                     }
-                    
                 }
+                
                 Button("칭찬하기") {
                     toastMessage = "오예 빙글빙글"
                     withAnimation(.easeInOut(duration: 0.3)) {

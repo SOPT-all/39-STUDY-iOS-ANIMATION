@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct ToastModifier: ViewModifier {
     @Binding var isPresented: Bool
@@ -18,7 +17,7 @@ struct ToastModifier: ViewModifier {
             .overlay(alignment: .bottom) {   // 위치는 자유롭게: .center, .top 등
                 if isPresented {
                     ToastView(title: title)
-                        .task {
+                        .task{
                             try? await Task.sleep(for: .seconds(duration))
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 isPresented = false
