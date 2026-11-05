@@ -38,10 +38,7 @@ struct MorucarView: View {
             
             HStack(spacing: 20) {
                 Button("외출하기") {
-                    toastMessage = "부릉부릉~"
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        isShowingToast = true
-                    }
+                    showToast(message: "부릉부릉~")
                     withAnimation(.easeIn(duration: 1)) {
                         offset = CGSize(width: 600 , height: 0)
                     } completion: {
@@ -50,20 +47,14 @@ struct MorucarView: View {
                 }
                 
                 Button("돌아오기") {
-                    toastMessage = "저 돌아왔어요"
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        isShowingToast = true
-                    }
-                    withAnimation(.easeOut(duration: 1)) {   
+                    showToast(message: "저 돌아왔어요")
+                    withAnimation(.easeOut(duration: 1)) {
                         offset = .zero
                     }
                 }
                 
                 Button("칭찬하기") {
-                    toastMessage = "오예 빙글빙글"
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        isShowingToast = true
-                    }
+                    showToast(message: "오예 신난다")
                     withAnimation(.easeInOut(duration: 1)) {
                         angle = .degrees(360)
                     } completion: {
@@ -73,10 +64,7 @@ struct MorucarView: View {
                     }
                 }
                 Button("놀래키기") {
-                    toastMessage = "아 깜짝이야!!"
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        isShowingToast = true
-                    }
+                    showToast(message: "아깜짝이야")
                     withAnimation(.easeInOut(duration: 0.3)) {
                         scale = 2
                     } completion: {
@@ -86,6 +74,13 @@ struct MorucarView: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func showToast(message: String) {
+        toastMessage = message
+        withAnimation(.easeInOut(duration: 0.3)) {
+            isShowingToast = true
         }
     }
 }
