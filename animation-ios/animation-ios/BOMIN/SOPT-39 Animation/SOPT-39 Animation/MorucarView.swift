@@ -17,7 +17,7 @@ struct MorucarView: View {
     @State private var toastMessage = ""
     
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 20) {
             
             Text("모루카 키우기")
                 .font(.system(size: 30, weight: .bold))
@@ -31,6 +31,11 @@ struct MorucarView: View {
                 .scaleEffect(scale)
                 .rotationEffect(angle)
                 .offset(offset)
+        
+            
+            Color.clear
+                .frame(height: 60)
+                .toast(isPresented: $isShowingToast, title: toastMessage)
             
             HStack(spacing: 20) {
                 Button("외출하기") {
@@ -80,11 +85,7 @@ struct MorucarView: View {
                         }
                     }
                 }
-                
-                
             }
-            .toast(isPresented: $isShowingToast, title: toastMessage)
-            
         }
     }
 }

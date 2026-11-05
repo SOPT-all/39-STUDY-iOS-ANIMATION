@@ -15,11 +15,9 @@ struct ToastModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(alignment: .top) {   // 위치는 자유롭게: .center, .top 등
+            .overlay(alignment: .bottom) {   // 위치는 자유롭게: .center, .top 등
                 if isPresented {
                     ToastView(title: title)
-                        .padding(.bottom, 40)
-                        .transition(.opacity.combined(with: .move(edge: .bottom)))
                         .task {
                             try? await Task.sleep(for: .seconds(duration))
                             withAnimation(.easeInOut(duration: 0.3)) {
