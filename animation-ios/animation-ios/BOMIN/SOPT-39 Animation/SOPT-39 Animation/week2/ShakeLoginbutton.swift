@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct ShakeLoginbutton: View {
+struct ShakeLoginButton: View {
+    @State private var attempts = 0
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("로그인") {
+            withAnimation(.linear(duration: 0.4)) {
+                attempts += 1   // 0 → 1로 바뀌는 동안 sin 곡선으로 좌우 진동
+            }
+        }
+        .modifier(ShakeEffect(animatableData: CGFloat(attempts)))
     }
 }
-
 #Preview {
-    ShakeLoginbutton()
+    ShakeLoginButton()
 }

@@ -12,12 +12,14 @@ struct TapLocationView: View {
 
     var body: some View {
         ZStack {
-            Color.yellow.opacity(0.3)
+            Color.white.opacity(0.3)
 
             if let point = tappedPoint {
-                Image(systemName: "heart.fill")
-                    .foregroundStyle(.red)
-                    .position(point)   // 탭한 위치에 하트 표시
+                Image(.morucar)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .position(point)
             }
         }
         .onTapGesture { location in

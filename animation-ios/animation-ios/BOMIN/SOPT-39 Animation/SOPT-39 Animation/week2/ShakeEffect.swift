@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct ShakeEffect: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct ShakeEffect: GeometryEffect {
+    var travel: CGFloat = 10      // 좌우로 움직이는 거리
+    var shakes: CGFloat = 3       // 떨리는 횟수
+    var animatableData: CGFloat   // 이 값이 애니메이션됨
 
-#Preview {
-    ShakeEffect()
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(
+            CGAffineTransform(
+                translationX: travel * sin(animatableData * .pi * shakes * 2),
+                y: 0
+            )
+        )
+    }
 }

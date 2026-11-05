@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct ShakeButton: View {
+    @State private var offsetY: CGFloat = 0
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("로그인") {
+            shake()
+        }
+        .offset(y: offsetY)
+    }
+
+    private func shake() {
+        withAnimation(.linear(duration: 0.01)) {
+    offsetY = 10
+} completion: {
+    withAnimation(.spring(response: 0.3, dampingFraction: 0.1)) {
+        offsetY = 0
+    }
+}
     }
 }
 
