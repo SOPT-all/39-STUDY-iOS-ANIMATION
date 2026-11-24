@@ -66,9 +66,9 @@ struct KeyFramePracitceView: View {
             .font(.galmuri9)
             .foregroundStyle(.gray)
             .underline()
-            .toastPractice(isPresented: $isShowingToast, title: "꼬부기 승!")
             .offset(x: 135, y: 170)
         }
+        .toastPractice(isPresented: $isShowingToast, title: "꼬부기 승!")
     }
 }
 

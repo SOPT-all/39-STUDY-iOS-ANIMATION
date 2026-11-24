@@ -30,7 +30,6 @@ struct ToastPracticeModifier: ViewModifier {
             .overlay(alignment: .bottom) {
                 if isPresented {
                     ToastPracticeView(title: title)
-                        .fixedSize()
                         .padding(.bottom, 30)
                         .transition(.opacity.combined(with: .move(edge: .bottom)))
                         .task {
