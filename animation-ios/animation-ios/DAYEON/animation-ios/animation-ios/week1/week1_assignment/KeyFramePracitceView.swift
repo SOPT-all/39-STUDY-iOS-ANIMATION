@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct CharacterValues {
-    var offset: CGSize = .zero
-    var angle: Angle = .zero
-    var scale: CGFloat = 1
-}
-
 struct KeyFramePracitceView: View {
     @State private var isShowingToast = false
     @State private var isRunning = false
@@ -49,66 +43,19 @@ struct KeyFramePracitceView: View {
             .underline()
             .offset(x: -140, y: 150)
             
-            Image(.ggobuk)
-                .resizable()
-                .frame(width: 100, height: 88)
-                .keyframeAnimator(initialValue: CharacterValues(), repeating: isRunning) { content, value in content
-                        .scaleEffect(value.scale)
-                        .rotationEffect(value.angle)
-                        .offset(value.offset)
-                } keyframes: { _ in
-                    KeyframeTrack(\.offset) {
-                        LinearKeyframe(CGSize(width: -100, height: -80), duration: 1)
-                        LinearKeyframe(CGSize(width: 100, height: 70), duration: 1)
-                        LinearKeyframe(CGSize(width: -100, height: -80), duration: 1)
-                        LinearKeyframe(CGSize(width: 100, height: 70), duration: 1)
-                        LinearKeyframe(CGSize(width: 0, height: 0), duration: 1)
-                    }
-                    
-                    KeyframeTrack(\.angle) {
-                        LinearKeyframe(.degrees(1800), duration: 5)
-                    }
-                    
-                    KeyframeTrack(\.scale) {
-                        SpringKeyframe(1, duration: 1)
-                        SpringKeyframe(2, duration: 1)
-                        SpringKeyframe(1, duration: 1)
-                        SpringKeyframe(2, duration: 1)
-                        SpringKeyframe(1, duration: 1)
-                    }
-                }
-                .offset(ggobukOffset)
+            Character(
+                image: .ggobuk,
+                size: CGSize(width: 100, height: 88),
+                isRunning: isRunning
+            )
+            .offset(ggobukOffset)
             
-            Image(.esanghae)
-                .resizable()
-                .frame(width: 100, height: 68)
-                .keyframeAnimator(initialValue: CharacterValues(), repeating: isRunning) { [isRunning] content, value in
-                    content
-                        .scaleEffect(isRunning ? value.scale : CGFloat(1))
-                        .rotationEffect(isRunning ? value.angle : Angle.zero)
-                        .offset(isRunning ? value.offset : CGSize.zero)
-                } keyframes: { _ in
-                    KeyframeTrack(\.offset) {
-                        LinearKeyframe(CGSize(width: -100, height: -80), duration: 1)
-                        LinearKeyframe(CGSize(width: 100, height: 70), duration: 1)
-                        LinearKeyframe(CGSize(width: -100, height: -80), duration: 1)
-                        LinearKeyframe(CGSize(width: 100, height: 70), duration: 1)
-                        LinearKeyframe(CGSize(width: 0, height: 0), duration: 1)
-                      }
-                    
-                    KeyframeTrack(\.angle) {
-                        LinearKeyframe(.degrees(1800), duration: 5)
-                    }
-                    
-                    KeyframeTrack(\.scale) {
-                        SpringKeyframe(1, duration: 1)
-                        SpringKeyframe(2, duration: 1)
-                        SpringKeyframe(1, duration: 1)
-                        SpringKeyframe(2, duration: 1)
-                        SpringKeyframe(1, duration: 1)
-                    }
-                }
-                .offset(esanghaeOffset)
+            Character(
+                image: .esanghae,
+                size: CGSize(width: 100, height: 68),
+                isRunning: isRunning
+            )
+            .offset(esanghaeOffset)
             
             Button("승자는?") {
                 withAnimation(.easeInOut(duration: 0.5)) {
