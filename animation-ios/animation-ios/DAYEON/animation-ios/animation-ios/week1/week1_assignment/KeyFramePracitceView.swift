@@ -15,7 +15,7 @@ struct KeyFramePracitceView: View {
     
     var body: some View {
         ZStack {
-            Image(.background)
+            Image("background")
                 .resizable()
                 .frame(maxWidth: .infinity)
                 .scaledToFit()
@@ -26,6 +26,7 @@ struct KeyFramePracitceView: View {
                         ggobukOffset = .zero
                         esanghaeOffset = .zero
                     } completion: {
+                        guard ggobukOffset == .zero else { return }
                         isRunning = true
                     }
                 }
@@ -43,14 +44,14 @@ struct KeyFramePracitceView: View {
             .underline()
             .offset(x: -140, y: 150)
             
-            Character(
+            KeyFrameCharacter(
                 image: .ggobuk,
                 size: CGSize(width: 100, height: 88),
                 isRunning: isRunning
             )
             .offset(ggobukOffset)
             
-            Character(
+            KeyFrameCharacter(
                 image: .esanghae,
                 size: CGSize(width: 100, height: 68),
                 isRunning: isRunning

@@ -1,5 +1,5 @@
 //
-//  Character.swift
+//  KeyFrameCharacter.swift
 //
 //
 //  Created by dayeon on 11/24/26.
@@ -13,7 +13,7 @@ struct CharacterValues {
     var scale: CGFloat = 1
 }
 
-struct Character: View {
+struct KeyFrameCharacter: View {
     let image: ImageResource
     let size: CGSize
     let isRunning: Bool
