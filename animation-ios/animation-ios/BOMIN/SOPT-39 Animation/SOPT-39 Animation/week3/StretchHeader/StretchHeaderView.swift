@@ -13,17 +13,15 @@ struct StretchHeaderView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                GeometryReader { proxy in
-                    let minY = proxy.frame(in: .scrollView).minY
-                    let stretch = max(minY, 0)
-                    Image("header")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: proxy.size.width, height: headerHeight + stretch)
-                        .clipped()
-                        .offset(y: -stretch)
-                }
-                .frame(height: headerHeight)
+                Image("header")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 300)
+                    .clipped()
+                    .visualEffect { content, proxy in
+                        let minY = proxy.frame(in: .scrollView).minY
+                        return content.scaleEffect(minY > 0 ? 1 + minY / 300 : 1, anchor: .bottom)
+                    }
 
                 LazyVStack {
                     ForEach(0..<30, id: \.self) { index in
