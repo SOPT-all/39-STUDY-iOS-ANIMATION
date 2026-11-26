@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29B20DFB30B7E4FC0031DD0B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 29B20DFA30B7E4FC0031DD0B /* Lottie */; };
-		29B20DFD30B7E4FC0031DD0B /* Lottie-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 29B20DFC30B7E4FC0031DD0B /* Lottie-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 			isa = PBXFrameworksBuildPhase;
 			files = (
 				29B20DFB30B7E4FC0031DD0B /* Lottie in Frameworks */,
-				29B20DFD30B7E4FC0031DD0B /* Lottie-Dynamic in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 			name = "SOPT-39 Animation";
 			packageProductDependencies = (
 				29B20DFA30B7E4FC0031DD0B /* Lottie */,
-				29B20DFC30B7E4FC0031DD0B /* Lottie-Dynamic */,
 			);
 			productName = "SOPT-39 Animation";
 			productReference = 291A49AB3087B9B200E78A3B /* SOPT-39 Animation.app */;
@@ -347,11 +344,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29B20DF930B7E4FC0031DD0B /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		29B20DFC30B7E4FC0031DD0B /* Lottie-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 29B20DF930B7E4FC0031DD0B /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = "Lottie-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
