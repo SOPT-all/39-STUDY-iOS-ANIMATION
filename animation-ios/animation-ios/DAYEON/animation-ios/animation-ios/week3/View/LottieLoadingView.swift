@@ -29,7 +29,6 @@ struct LottieLoadingView: View {
         }
     }
 
-    /// 상태에 따라 어떤 로띠를 보여줄지만 고름
     @ViewBuilder
     private var animationArea: some View {
         switch viewModel.state {
@@ -43,7 +42,7 @@ struct LottieLoadingView: View {
                 .playing(loopMode: .loop)
 
         case .completed:
-            LottieView(animation: .named("complete"))
+            LottieView(animation: .named("home"))
                 .playing(loopMode: .playOnce)
         }
     }
