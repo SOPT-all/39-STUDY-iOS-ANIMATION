@@ -25,8 +25,27 @@ struct CarouselView: View {
         .scrollTargetBehavior(.paging)
         .scrollPosition(id: $viewModel.currentID)
         .scrollIndicators(.hidden)
+        .aspectRatio(1, contentMode: .fit)
         .onChange(of: viewModel.currentID) {
             viewModel.adjustIfNeeded()
         }
+        .overlay(alignment: .bottomTrailing) {
+            Text(viewModel.pageText)
+                .font(.caption.bold())
+                .foregroundStyle(.white)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 4)
+                .background(.black.opacity(0.5), in: Capsule())
+                .padding(.bottom, 12)
+                .padding(.trailing, 16)
+        }
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(3))
+                guard !Task.isCancelled else { break }
+                viewModel.moveToNext()
+            }
+        }
+        
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct SOPT_39_AnimationApp: App {
     var body: some Scene {
         WindowGroup {
-            StickyHeaderView()
+            CarouselView()
         }
     }
 }
